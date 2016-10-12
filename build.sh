@@ -14,12 +14,12 @@ log='测试'
 username='Luobata'
 password='ychshe123'
 project='copy'
-file='./'$project'/test/img'
+file='./'$project'/img'
 src='./'$project'/img/*'
 
 #测试git地址 TODO 项目名称提取 路径管理
-mkdir $project
-git clone https://$username:$password@github.com/Luobata/test.git $project
+#mkdir $project
+#git clone https://$username:$password@github.com/Luobata/test.git $project
 
 mv $file tmp
 mkdir $file
