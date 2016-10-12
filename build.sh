@@ -15,18 +15,20 @@ username='Luobata'
 password='ychshe123'
 project='copy'
 file='./'$project'/img'
-src='./'$project'/img/*'
+src='./img/*'
 
 #测试git地址 TODO 项目名称提取 路径管理
-#mkdir $project
-#git clone https://$username:$password@github.com/Luobata/test.git $project
+mkdir $project
+git clone https://$username:$password@github.com/Luobata/test.git $project
 
 mv $file tmp
 mkdir $file
 rm -rf tmp
-cp -fr $src $file && cd $file
+cp -fr $src $file && cd $project
 
-git config credential.helper store
+#git config credential.helper store
 git add .
 git commit -a -m $log
 git push -f
+
+cd ../ && rm -rf $project
