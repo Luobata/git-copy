@@ -10,13 +10,23 @@
 #ln - s /opt/apps_install/node-v0.10.25/bin/node node
 #ln - s /usr/bin/git git
 
-file='./test/img'
-src='./img/*'
+log='测试'
+username='Luobata'
+password='ychshe123'
+project='copy'
+file='./'$project'/test/img'
+src='./'$project'/img/*'
 
 #测试git地址 TODO 项目名称提取 路径管理
-#git clone https://github.com/Luobata/test.git
+mkdir $project
+git clone https://$username:$password@github.com/Luobata/test.git $project
 
+mv $file tmp
+mkdir $file
+rm -rf tmp
 cp -fr $src $file && cd $file
 
-status=`git status`
-echo ${status}
+git config credential.helper store
+git add .
+git commit -a -m $log
+git push -f
